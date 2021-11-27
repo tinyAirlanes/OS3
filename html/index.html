@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../style/style.css" />
+    <script src = "../javascripts/script.js">
+      document.addEventListener('DOMContentLoaded', function()
+      {
+        let wrapper = document.getElementById('wrapper')
+        let topLayer = wrapper.querySelector('.top')
+        let handle = wrapper.querySelector('.handle')
+        let skew = 0;
+        let delta = 0;
+        if(wrapper.className.indexOf('skewed') != -1 ){
+            skew = 1000;
+        }
+    
+        wrapper.addEventListener('mousemove' , function(event){
+            delta = (event.clientX - window.innerWidht / 2 ) * 0.5;
+            handle.style.left = event.clientX + delta + 'px';
+            topLayer.style.width = event.clientX + skew + delta  + 'px';
+        });
+    
+    });
+    </script>
+</head>
+<body>
+  
+<section class="skewed" id="wrapper">
+    <div class="layer bottom">
+      <div class="content-wrap">
+        <div class="content-body">
+            <h1>dark</h1>
+        </div>
+        <h2 align = 'center'>The most powerful BMW</h2>
+        <a href='https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m5-cs.html' align ='center'>M5 Competition</a>
+        <img src="../img/2.jpg" alt="dark">
+      </div>
+    </div>
+    
+    <div class="layer top">
+      <div class="content-wrap">
+        <div class="content-body">
+            <h1>light</h1>
+        </div>
+        <h2 align = 'center'>The most powerful BMW</h2>
+        <a href='https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m5-cs.html' align ='center'>M5 Competition</a>
+        <img src="../img/1.jpg" alt="light">
+      </div>
+    </div>
+    
+    <div class="handle"></div>
+  </section>
+
+</body>
